@@ -1,0 +1,27 @@
+INSERT COURSE CSCI330 'DATABASE SYSTEMS' 4;
+INSERT COURSE CSCI345 'OBJECT ORIENTED DESIGN' 4;
+
+INSERT DEPT DENEKE CSCI;
+
+PRINT COURSE, DEPT;
+
+/* show properly formatted basic deletes/destroys */
+
+DELETE COURSE;
+PRINT COURSE;
+
+INSERT COURSE CSCI330 'DATABASE SYSTEMS' 4; /* SHOULD BE ABLE TO INSERT */
+INSERT COURSE CSCI345 'OBJECT ORIENTED DESIGN' 4;
+PRINT COURSE;
+
+RELATION COURSE (CNUM CHAR 8, TITLE CHAR 30, CREDITS NUM 4); 
+/* won't create - already exists */
+
+DESTROY DEPT;
+PRINT DEPT;
+INSERT DEPT DENEKE CSCI; /* won't insert because department was deleted */
+PRINT DEPT;
+
+RELATION DEPT (NAME CHAR 20, DEPT CHAR 4); /* Can now re-create dept because it was destroyed */
+INSERT DEPT DENEKE CSCI; /* can add again, relation re-created */
+PRINT DEPT;
